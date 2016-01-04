@@ -1,0 +1,30 @@
+{
+  "name": "js-monads",
+  "version": "1.0.0",
+  "description": "",
+  "main": "maybeMonad.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@gist.github.com/ee2e87db5c49f0613434.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://gist.github.com/ee2e87db5c49f0613434"
+  },
+  "homepage": "https://gist.github.com/ee2e87db5c49f0613434",
+  "dependencies": {},
+  "devDependencies": {
+    "babel-preset-es2015-node4": "^2.0.2",
+    "babel-preset-stage-0": "^6.3.13"
+  },
+  "babel": {
+    "presets": [
+      "es2015-node4",
+      "stage-0"
+    ]
+  }
+}
