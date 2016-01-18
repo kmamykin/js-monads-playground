@@ -32,3 +32,36 @@ const toEndofunction = event => event.cata({
 const compose = (fns) => fns.reduce((composed, fn) => s => fn(composed(s)), s => s)
 
 console.log(compose(history.map(toEndofunction))({}))
+
+class UnitBaseEvent {
+  constructor(serialNumber) {
+    this.serialNumber = serialNumber
+  }
+  match (spec) {
+    return spec[this.constructor.name](this)
+  }
+}
+
+class UnitProvisioned extends UnitBaseEvent {
+  constructor (sn, a) {
+    super(sn)
+    this.a = a
+  }
+}
+
+class UnitRegistered extends UnitBaseEvent {
+  static REGID = 123
+}
+
+console.log(new UnitProvisioned('123', 1))
+console.log(new UnitProvisioned('123', 2) instanceof UnitProvisioned)
+console.log(new UnitProvisioned('123', 2) instanceof UnitBaseEvent)
+
+const event = new UnitProvisioned('123', 2)
+
+event.match({
+  UnitProvisioned: (e) => { console.log('UP ' + e.a) },
+  UnitRegistered: (e) => { console.log('UR') }
+})
+
+console.log([new UnitProvisioned('123', 1), new UnitProvisioned('123', 2), new UnitProvisioned('123', 3), new UnitRegistered('123')])
