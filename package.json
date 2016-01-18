@@ -16,7 +16,10 @@
     "url": "https://gist.github.com/ee2e87db5c49f0613434"
   },
   "homepage": "https://gist.github.com/ee2e87db5c49f0613434",
-  "dependencies": {},
+  "dependencies": {
+    "daggy": "0.0.1",
+    "monet": "^0.8.6"
+  },
   "devDependencies": {
     "babel-preset-es2015-node4": "^2.0.2",
     "babel-preset-stage-0": "^6.3.13"
