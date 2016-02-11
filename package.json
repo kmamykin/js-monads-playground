@@ -19,7 +19,9 @@
   "dependencies": {
     "daggy": "0.0.1",
     "isomorphic-fetch": "^2.2.1",
-    "monet": "^0.8.6"
+    "lodash": "^4.3.0",
+    "monet": "^0.8.6",
+    "yio": "^0.2.4"
   },
   "devDependencies": {
     "babel-preset-es2015-node4": "^2.0.2",
