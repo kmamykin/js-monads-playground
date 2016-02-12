@@ -1,9 +1,16 @@
-export const getItem = key => ({type: 'GET_ITEM', key})
-export const setItem = (key, value) => ({type: 'SET_ITEM', key, value})
-export const removeItem = key => ({type: 'REMOVE_ITEM', key})
-export const clear = () => ({type: 'CLEAR'})
+const getItem = key => ({type: 'GET_ITEM', key})
+const setItem = (key, value) => ({type: 'SET_ITEM', key, value})
+const removeItem = key => ({type: 'REMOVE_ITEM', key})
+const clear = () => ({type: 'CLEAR'})
 
-export default ({storage}) => effect => {
+export default {
+  getItem,
+  setItem,
+  removeItem,
+  clear
+}
+
+export const run = ({storage}) => effect => {
   switch (effect.type) {
     case 'GET_ITEM':
       return Promise.resolve(storage.getItem(effect.key))
@@ -19,7 +26,7 @@ export default ({storage}) => effect => {
   }
 }
 
-export const mapInterpreter = map => effect => {
+export const runOnMap = map => effect => {
   console.log('Interpreting effect', effect, 'on', map)
   switch (effect.type) {
     case 'GET_ITEM':

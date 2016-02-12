@@ -1,10 +1,12 @@
 // Effect module consisting of interpreter and effect creators
 require('isomorphic-fetch')
 
-export const getUser = username => ({type: 'GET_USER', username})
-export const getFollowers = url => ({type: 'GET_FOLLOWERS', url})
+export default {
+  getUser: username => ({type: 'GET_USER', username}),
+  getFollowers: url => ({type: 'GET_FOLLOWERS', url})
+}
 
-export default config => effect => {
+export const run = config => effect => {
   switch (effect.type) {
     case 'GET_USER':
       return fetch(`https://api.github.com/users/${effect.username}`).then(r => r.json())
